@@ -25,7 +25,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
                         }`}
                         onClick={() => activeTab(tab, index)}
                     >
-                        {tab}
+                        {tab === 'live'? 'Đang chiếu': 'Sắp chiếu'}
                     </span>
                 ))}
                 <span className="movingBg" style={{ left }} />

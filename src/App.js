@@ -5,7 +5,8 @@ import Home from "./pages/home/Home";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchDataFromApi} from "./utils/api";
-import {getApiConfiguration} from "./redux/stores/homeSlice";
+import {getApiBanners, getApiConfiguration} from "./redux/stores/homeSlice";
+import {API_LINK_BANNER} from "./utils/settings/config";
 
 export const history = createBrowserHistory();
 
@@ -19,16 +20,8 @@ function App() {
     }, []);
 
     const fetchApiConfig = () => {
-        fetchDataFromApi("/configuration").then((res) => {
-            // console.log(res);
-
-            const url = {
-                backdrop: res.images.secure_base_url + "original",
-                poster: res.images.secure_base_url + "original",
-                profile: res.images.secure_base_url + "original",
-            };
-
-            dispatch(getApiConfiguration(url));
+        fetchDataFromApi(API_LINK_BANNER).then((res) => {
+            dispatch(getApiBanners(res?.content));
         });
     };
 

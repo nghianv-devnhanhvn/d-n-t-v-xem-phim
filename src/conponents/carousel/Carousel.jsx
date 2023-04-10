@@ -15,10 +15,8 @@ import Genres from "../genres/Genres";
 
 import "./carosuel.scss";
 
-const Carousel = ({ data, loading, endpoint, title }) => {
+const Carousel = ({ data, loading, title }) => {
     const carouselContainer = useRef();
-    const { url } = useSelector((state) => state.home);
-    // const navigate = useNavigate();
 
     const navigation = (dir) => {
         const container = carouselContainer.current;
@@ -61,12 +59,12 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                 {!loading ? (
                     <div className="carouselItems" ref={carouselContainer}>
                         {data?.map((item) => {
-                            const posterUrl = item.poster_path
-                                ? url.poster + item.poster_path
+                            const posterUrl = item.hinhAnh
+                                ? item.hinhAnh
                                 : PosterFallback;
                             return (
                                 <div
-                                    key={item.id}
+                                    key={item.maPhim}
                                     className="carouselItem"
                                     onClick={() =>
                                         // navigate(
@@ -80,21 +78,23 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                     <div className="posterBlock">
                                         <Img src={posterUrl} />
                                         <CircleRating
-                                            rating={item.vote_average.toFixed(
-                                                1
-                                            )}
+                                            // rating={item.vote_average.toFixed(
+                                            //     1
+                                            // )}
+                                            rating={70}
                                         />
                                         <Genres
-                                            data={item.genre_ids.slice(0, 2)}
+                                            // data={item.genre_ids.slice(0, 2)}
                                         />
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
-                                            {item.title || item.name}
+                                            {item.tenPhim}
                                         </span>
                                         <span className="date">
-                                            {dayjs(item.release_Date).format(
-                                                "MMM D, YYYY"
+                                            <span>Ngày khởi chiếu:</span>
+                                            { dayjs(item.ngayKhoiChieu).format(
+                                                "D/M/YYYY"
                                             )}
                                         </span>
                                     </div>

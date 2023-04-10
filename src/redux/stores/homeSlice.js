@@ -7,7 +7,7 @@ export const homeSlice = createSlice({
         genres: {},
     },
     reducers: {
-        getApiConfiguration: (state, action) => {
+        getApiBanners: (state, action) => {
             state.url = action.payload;
         },
         getGenres: (state, action) => {
@@ -17,6 +17,6 @@ export const homeSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { getApiConfiguration, getGenres } = homeSlice.actions;
+export const { getApiBanners, getGenres } = homeSlice.actions;
 
 export default homeSlice.reducer;

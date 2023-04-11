@@ -3,17 +3,15 @@ import {
     BsFillArrowLeftCircleFill,
     BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-// import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import dayjs from "dayjs";
-
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from "../circleRating/CircleRating";
-import Genres from "../genres/Genres";
-
 import "./carosuel.scss";
+import Genres from "../genres/Genres";
+import {genreRandom} from "../../core/GenreRandom";
+import {history} from "../../App";
 
 const Carousel = ({ data, loading, title }) => {
     const carouselContainer = useRef();
@@ -67,24 +65,16 @@ const Carousel = ({ data, loading, title }) => {
                                     key={item.maPhim}
                                     className="carouselItem"
                                     onClick={() =>
-                                        // navigate(
-                                        //     `/${item.media_type || endpoint}/${
-                                        //         item.id
-                                        //     }`
-                                        // )
-                                        console.log('navigate')
+                                        history.push(`/chi-tiet-phim/${item.maPhim}`)
                                     }
                                 >
                                     <div className="posterBlock">
                                         <Img src={posterUrl} />
                                         <CircleRating
-                                            // rating={item.vote_average.toFixed(
-                                            //     1
-                                            // )}
-                                            rating={70}
+                                            rating={item.danhGia? parseInt(item.danhGia) * 10 : 60 }
                                         />
                                         <Genres
-                                            // data={item.genre_ids.slice(0, 2)}
+                                            data={genreRandom}
                                         />
                                     </div>
                                     <div className="textBlock">

@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchDataFromApi} from "./utils/api";
-import {getApiBanners, getApiConfiguration} from "./redux/stores/homeSlice";
+import {getApiBanners} from "./redux/stores/homeSlice";
 import {API_LINK_BANNER} from "./utils/settings/config";
 
 export const history = createBrowserHistory();

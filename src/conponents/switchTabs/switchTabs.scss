@@ -1,12 +1,12 @@
 .switchingTabs {
-    height: 34px;
+    height: 42px;
     background-color: white;
     border-radius: 20px;
     padding: 2px;
     .tabItems {
         display: flex;
         align-items: center;
-        height: 30px;
+        height: 38px;
         position: relative;
         .tabItem {
             height: 100%;
@@ -25,9 +25,9 @@
             }
         }
         .movingBg {
-            height: 30px;
+            height: 38px;
             width: 100px;
-            border-radius: 15px;
+            border-radius: 20px;
             background-image: var(--gradient);
             position: absolute;
             left: 0;

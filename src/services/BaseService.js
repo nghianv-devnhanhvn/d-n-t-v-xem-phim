@@ -1,12 +1,12 @@
 import Axios from "axios";
-import {DOMAIN, TOKEN} from "../utils/settings/config";
+import {BASE_URL, TOKEN} from "../utils/settings/config";
 
 export class BaseService{
 
     // put json về backend
     put = (url, model) => {
         return Axios({
-            url: `${DOMAIN}/${url}`,
+            url: `${BASE_URL}/${url}`,
             method: 'PUT',
             data: model,
             headers: {'Authorization': 'Bearer '+ localStorage.getItem(TOKEN)}
@@ -15,7 +15,7 @@ export class BaseService{
 
     post = (url, model) => {
         return Axios({
-            url: `${DOMAIN}/${url}`,
+            url: `${BASE_URL}/${url}`,
             method: 'POST',
             data: model,
             headers: {'Authorization': 'Bearer '+ localStorage.getItem(TOKEN)}
@@ -24,7 +24,7 @@ export class BaseService{
 
     get = (url, model) => {
         return Axios({
-            url: `${DOMAIN}/${url}`,
+            url: `${BASE_URL}/${url}`,
             method: 'GET',
             headers: {'Authorization': 'Bearer '+ localStorage.getItem(TOKEN)}
         })
@@ -32,7 +32,7 @@ export class BaseService{
 
     delete = (url, model) => {
         return Axios({
-            url: `${DOMAIN}/${url}`,
+            url: `${BASE_URL}/${url}`,
             method: 'DELETE',
             headers: {'Authorization': 'Bearer '+ localStorage.getItem(TOKEN)}
         })

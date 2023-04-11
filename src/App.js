@@ -3,18 +3,15 @@ import {Router, Switch} from "react-router-dom";
 import HomeTemplate from "./templates/homeTemplate/HomeTemplate";
 import Home from "./pages/home/Home";
 import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {fetchDataFromApi} from "./utils/api";
-import {getApiBanners} from "./redux/stores/homeSlice";
+import {getApiBanners} from "./redux/stores/HomeSlice";
 import {API_LINK_BANNER} from "./utils/settings/config";
 
 export const history = createBrowserHistory();
 
 function App() {
-
     const dispatch = useDispatch();
-    const {url} = useSelector(state => state.home);
-
     useEffect(() => {
         fetchApiConfig();
     }, []);

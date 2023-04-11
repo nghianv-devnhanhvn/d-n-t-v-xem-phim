@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import homeSlice from "./stores/homeSlice";
+import HomeSlice from "./stores/HomeSlice";
+import MovieTheaterSlide from "./stores/MovieTheaterSlide";
 
 const rootReducer = {
     // Khai báo reducer tại đây
-    home: homeSlice
+    home: HomeSlice,
+    movieTheater: MovieTheaterSlide
 }
 
 

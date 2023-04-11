@@ -56,7 +56,7 @@ const Carousel = ({ data, loading, title }) => {
                 />
                 {!loading ? (
                     <div className="carouselItems" ref={carouselContainer}>
-                        {data?.map((item) => {
+                        {data?.sort(() => 0.5 - Math.random())?.map((item) => {
                             const posterUrl = item.hinhAnh
                                 ? item.hinhAnh
                                 : PosterFallback;

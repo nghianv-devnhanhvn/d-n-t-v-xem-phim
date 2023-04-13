@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 import {NavLink} from "react-router-dom";
 import dayjs from "dayjs";
 import ContentWrapper from "../../../conponents/contentWrapper/ContentWrapper";
-import './MovieTheaterComponent.scss';
+import './movieTheaterComponent.scss';
 
 //class PercentageStat extends React.PureComponent
 //ko gọi tới sẽ k render lại giao diện

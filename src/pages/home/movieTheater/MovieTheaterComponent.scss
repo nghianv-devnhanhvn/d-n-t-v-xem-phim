@@ -1,55 +1,68 @@
+.wrapper-cinema{
+  background: #ffffff;
+  position: relative;
+  border-radius: 1rem;
+  overflow-x: auto;
+  box-shadow: var(--tw-ring-offset-shadow),
+  var(--tw-ring-shadow),
+  var(--tw-shadow);
 
-#tab-cinema {
-  margin: 20px 0;
-
-  .ant-tabs-nav,
-  .ant-tabs-content-holder:last-child {
-    height: 550px !important;
-    overflow: auto;
+  #title-cinema{
+    text-align: center;
   }
 
-  .ant-tabs-nav::-webkit-scrollbar,
-  .ant-tabs-content-holder::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-    border-radius: 5px;
-    background-color: rgb(232, 227, 227);
+  #tab-cinema {
+    margin: 20px 0;
+
+    .ant-tabs-nav,
+    .ant-tabs-content-holder:last-child {
+      height: 550px !important;
+      overflow: auto;
+    }
+
+    .ant-tabs-nav::-webkit-scrollbar,
+    .ant-tabs-content-holder::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+      border-radius: 5px;
+      background-color: rgb(232, 227, 227);
+    }
+
+    .ant-tabs-nav::-webkit-scrollbar-thumb,
+    .ant-tabs-content-holder::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+    }
+
+    .ant-tabs-nav::-webkit-scrollbar-track,
+    .ant-tabs-content-holder::-webkit-scrollbar-track {
+      border-radius: 5px;
+    }
+
+    .ant-tabs-tab {
+      margin: auto;
+      padding: 20px;
+      position: relative;
+      min-width: 92px;
+    }
+
+    .ant-tabs-tab::after {
+      left: 50%;
+      width: calc(100% - 40px);
+      bottom: 0;
+      content: "";
+      position: absolute;
+      transform: translateX(-50%);
+    }
+
+    .ant-tabs-nav,
+    .ant-tabs-content-holder:last-child {
+      height: 550px !important;
+      overflow: auto;
+    }
   }
 
-  .ant-tabs-nav::-webkit-scrollbar-thumb,
-  .ant-tabs-content-holder::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+  #tab-cinema-panel-1 {
+    margin-left: 0;
   }
-
-  .ant-tabs-nav::-webkit-scrollbar-track,
-  .ant-tabs-content-holder::-webkit-scrollbar-track {
-    border-radius: 5px;
-  }
-
-  .ant-tabs-tab {
-    margin: auto;
-    padding: 20px;
-    position: relative;
-    min-width: 92px;
-  }
-
-  .ant-tabs-tab::after {
-    left: 50%;
-    width: calc(100% - 40px);
-    bottom: 0;
-    content: "";
-    position: absolute;
-    transform: translateX(-50%);
-  }
-
-  .ant-tabs-nav,
-  .ant-tabs-content-holder:last-child {
-    height: 550px !important;
-    overflow: auto;
-  }
-}
-
-#tab-cinema-panel-1 {
-  margin-left: 0;
 }

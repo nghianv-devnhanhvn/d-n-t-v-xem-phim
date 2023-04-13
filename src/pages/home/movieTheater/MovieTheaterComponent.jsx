@@ -15,9 +15,9 @@ import './MovieTheaterComponent.scss';
 function MovieTheaterComponent(props) {
     const {movieTheaters} = props;
     const handleChildren = (movieTheater) => {
-        return <Tabs tabPosition="left" items={movieTheater.lstCumRap?.map((cumRap) => {
+        return <Tabs tabPosition="left" items={movieTheater.lstCumRap?.map((cumRap, index) => {
             return {
-                key: cumRap.maCumRap,
+                key: index,
                 label: (<div style={{width: '300px', display: 'flex'}}>
                     <img style={{objectFit: "scale-down"}} className="mr-2"
                          src={cumRap.hinhAnh}
@@ -63,18 +63,23 @@ function MovieTheaterComponent(props) {
     }
 
     return (
-        <ContentWrapper>
-            {
-                movieTheaters && <Tabs id="tab-cinema" tabPosition="left" items={movieTheaters?.map((movieTheater) => {
-                    return {
-                        label: <img src={movieTheater.logo} alt={movieTheater.logo} width="50" height="50" style={{borderRadius: '50%'}} />,
-                        key: movieTheater.maHeThongRap,
-                        children: handleChildren(movieTheater),
-                    };
-                })} />
+        <Fragment>
+            { movieTheaters &&
+                <ContentWrapper className="wrapper-cinema">
+                    <div id="title-cinema" className="text-center">
+                        <h1>Danh sách cụm rạp</h1>
+                    </div>
+                    <Tabs id="tab-cinema" tabPosition="left" items={movieTheaters?.map((movieTheater) => {
+                        return {
+                            label: <img src={movieTheater.logo} alt={movieTheater.logo} width="50" height="50"
+                                        style={{borderRadius: '50%'}}/>,
+                            key: movieTheater.maHeThongRap,
+                            children: handleChildren(movieTheater),
+                        };
+                    })}/>
+                </ContentWrapper>
             }
-
-        </ContentWrapper>
+        </Fragment>
     );
 }
 

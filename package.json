@@ -20,7 +20,8 @@
     "axios": "^1.2.2",
     "dayjs": "^1.11.7",
     "react-circular-progressbar": "^2.1.0",
-    "antd": "^4.6.4"
+    "antd": "^4.6.4",
+    "react-player": "^2.11.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux";
 import {fetchDataFromApi} from "./utils/api";
 import {getApiBanners} from "./redux/stores/HomeSlice";
 import {API_LINK_BANNER} from "./utils/settings/config";
+import Details from "./pages/details/Details";
 
 export const history = createBrowserHistory();
 
@@ -27,6 +28,7 @@ function App() {
           <Switch>
               <HomeTemplate path="/" exact Component={Home} />
               <HomeTemplate path="/home" exact Component={Home} />
+              <HomeTemplate path="/chi-tiet-phim/:movieId" exact Component={Details} />
           </Switch>
       </Router>
   );

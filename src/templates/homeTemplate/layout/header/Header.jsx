@@ -3,7 +3,7 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 // import { useNavigate, useLocation } from "react-router-dom";
-import {useLocation } from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 
 import "./header.scss";
 import ContentWrapper from "../../../../conponents/contentWrapper/ContentWrapper";
@@ -76,7 +76,9 @@ const Header = () => {
             <ContentWrapper>
                 {/*<div className="logo" onClick={() => navigate("/")}>*/}
                 <div className="logo">
-                    <img src="https://www.betacinemas.vn/Assets/Common/logo/logo.png" alt="" />
+                    <NavLink to={'/'}>
+                        <img src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo-small.png" alt="" />
+                    </NavLink>
                 </div>
                 <ul className="menuItems">
                     <li

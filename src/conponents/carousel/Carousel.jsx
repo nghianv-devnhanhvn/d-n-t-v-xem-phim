@@ -84,7 +84,7 @@ const Carousel = ({ data, loading, title }) => {
                                         <span className="date">
                                             <span>Ngày khởi chiếu:</span>
                                             { dayjs(item.ngayKhoiChieu).format(
-                                                "D/M/YYYY"
+                                                "DD/MM/YYYY"
                                             )}
                                         </span>
                                     </div>

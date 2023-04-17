@@ -36,7 +36,7 @@ const HomeBanner = () => {
             <div className="opacity-layer"></div>
             <ContentWrapper>
                 <div className="heroBannerContent">
-                    <span className="title">Beta</span>
+                    <span className="title">CGV</span>
                     <span className="subTitle">
                         Đặt vé xem phim ngay thôi nào!.
                     </span>

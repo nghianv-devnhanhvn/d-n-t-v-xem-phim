@@ -12,51 +12,45 @@ import './movieTheaterComponent.scss';
 //https://reactjs.org/docs/react-api.html#reactmemo
 //https://stackoverflow.com/questions/43470659/declare-a-functional-component-as-pure
 
-function MovieTheaterComponent(props) {
-    const {movieTheaters} = props;
+function MovieTheaterComponent({movieTheaters}) {
     const handleChildren = (movieTheater) => {
         return <Tabs tabPosition="left" items={movieTheater.lstCumRap?.map((cumRap, index) => {
             return {
                 key: index,
-                label: (<div style={{width: '300px', display: 'flex'}}>
+                label: (<div className="branchWrapper">
                     <img style={{objectFit: "scale-down"}} className="mr-2"
                          src={cumRap.hinhAnh}
                          alt={cumRap.hinhAnh}
                          width="50" height="50" />
-                    <div><span style={{fontWeight: "bold"}}>{cumRap.tenCumRap}</span>
-                        <span className="text-left text-red-400" style={{display:"block", fontSize: "13px"}}>[Chi tiết]</span>
+                    <div className="branchInfo">
+                        <span>{cumRap.tenCumRap}</span>
+                        <span>[Chi tiết]</span>
                     </div>
                 </div>),
-                children: (<div>
+                children: (<Fragment>
                     {
                         // load lịch chiếu phim
                         cumRap.danhSachPhim.map((phim, index) => {
                             return (
-                                <Fragment key={phim.maPhim}>
-                                    <div className="my-5" style={{display: 'flex'}}>
-                                        <div style={{display: 'flex'}}>
+                                <div className="movieItem" key={index}>
+                                    <img className="movieItem__img" src={phim.hinhAnh} alt={phim.tenPhim}/>
+                                    <div className="movieItem__info">
+                                        <span className="movieItem__info--name">{phim.tenPhim}</span>
+                                        <span className="movieItem__info--address">{cumRap.diaChi}</span>
 
-                                            <img style={{width: 100, height: 75}} src={phim.hinhAnh} alt={phim.tenPhim}/>
-                                            <div className="ml-5">
-                                                <span style={{display: 'block'}} className="text-xl text-green-700">{phim.tenPhim}</span>
-                                                <span>{cumRap.diaChi}</span>
-
-                                                <div className="mt-3 grid grid-cols-6 gap-6">
-                                                    {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
-                                                        return <NavLink className="text-sm text-gray-700 border p-2 radio rounded" to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
-                                                            {dayjs(lichChieu.ngayChieuGioChieu).format('hh:mm:A')}
-                                                        </NavLink>
-                                                    })}
-                                                </div>
-                                            </div>
+                                        <div className="movieItem__info--times">
+                                            {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
+                                                return <NavLink className="time__item" to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
+                                                    {dayjs(lichChieu.ngayChieuGioChieu).format('hh:mm:A')}
+                                                </NavLink>
+                                            })}
                                         </div>
                                     </div>
-                                    <hr />
-                                </Fragment>
+                                </div>
                             )
                         })
                     }
-                </div>)
+                </Fragment>)
             };
         })}
         />
@@ -65,18 +59,20 @@ function MovieTheaterComponent(props) {
     return (
         <Fragment>
             { movieTheaters &&
-                <ContentWrapper className="wrapper-cinema">
-                    <div id="title-cinema" className="text-center">
-                        <h1>Danh sách cụm rạp</h1>
+                <ContentWrapper>
+                    <div id="cinemaTitle" className="text-center">
+                        <span>Danh sách cụm rạp</span>
                     </div>
-                    <Tabs id="tab-cinema" tabPosition="left" items={movieTheaters?.map((movieTheater) => {
-                        return {
-                            label: <img src={movieTheater.logo} alt={movieTheater.logo} width="50" height="50"
-                                        style={{borderRadius: '50%'}}/>,
-                            key: movieTheater.maHeThongRap,
-                            children: handleChildren(movieTheater),
-                        };
-                    })}/>
+                    <div className="cinemaWrapper">
+                        <Tabs id="cinemaTab" tabPosition="left" items={movieTheaters?.map((movieTheater) => {
+                            return {
+                                label: <img src={movieTheater.logo} alt={movieTheater.logo} width="50" height="50"
+                                            style={{borderRadius: '50%'}}/>,
+                                key: movieTheater.maHeThongRap,
+                                children: handleChildren(movieTheater),
+                            };
+                        })}/>
+                    </div>
                 </ContentWrapper>
             }
         </Fragment>

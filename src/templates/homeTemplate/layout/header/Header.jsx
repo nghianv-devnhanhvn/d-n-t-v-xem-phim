@@ -1,13 +1,14 @@
 import "./header.scss";
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import {HiOutlineSearch, HiOutlineUser} from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import {NavLink, useLocation} from "react-router-dom";
 import ContentWrapper from "../../../../conponents/contentWrapper/ContentWrapper";
 import {history} from "../../../../App";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {openModalAccount} from "../../../../redux/stores/ModalAccountSlide";
+import {logoutAccount, setInfoLogin} from "../../../../redux/stores/AccountSlide";
 
 const Header = () => {
     const [show, setShow] = useState("top");
@@ -17,6 +18,8 @@ const Header = () => {
     const [showSearch, setShowSearch] = useState("");
     const location = useLocation();
     const dispatch = useDispatch();
+
+    const {userLogin} = useSelector(state => state.accountSlide);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -34,6 +37,43 @@ const Header = () => {
         }
         setLastScrollY(window.scrollY);
     };
+
+    const renderLogin = () => {
+        if(Object.keys(userLogin).length === 0){
+            return (
+                <li
+                    className="menuItem"
+                    onClick={() => dispatch(openModalAccount({
+                        visible: true,
+                        isRegister: false
+                    }))}
+                >
+                    <HiOutlineUser />
+                </li>
+            )
+        }
+        return (
+            <li className="menuItem nav-item dropdown">
+                <span className="menuItem nav-link dropdown-toggle p-0" id="navbarDarkDropdownMenuLink"
+                      role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Xin chào {userLogin.hoTen.toUpperCase()}
+                </span>
+                <ul className="dropdown-menu dropdown-menu-white"
+                    aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li>
+                        <span className="dropdown-item"
+                              onClick={() => history.push('/tai-khoan')}>Tài khoản
+                        </span>
+                    </li>
+                    <li>
+                        <span className="dropdown-item"
+                              onClick={() => dispatch(logoutAccount())}>Đăng xuất
+                        </span>
+                    </li>
+                </ul>
+            </li>
+        )
+    }
 
     useEffect(() => {
         window.addEventListener("scroll", controlNavbar);
@@ -82,20 +122,9 @@ const Header = () => {
                     >
                         Liên hệ
                     </li>
-                    <li
-                        className="menuItem"
-                    >
-                        Xin chào NghiaNV
-                    </li>
-                    <li
-                        className="menuItem"
-                        onClick={() => dispatch(openModalAccount({
-                            visible: true,
-                            isRegister: false
-                        }))}
-                    >
-                        <HiOutlineUser />
-                    </li>
+
+                    {renderLogin()}
+
                     <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />
                     </li>

@@ -26,7 +26,7 @@ function Register(props) {
                     </span>
                 </div>
                 <div className="submitBtn">
-                    <input type="button" value="Đăng kí" />
+                    <input type="submit" value="Đăng kí" />
                 </div>
             </form>
 

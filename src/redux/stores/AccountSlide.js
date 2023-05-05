@@ -23,10 +23,16 @@ export const AccountSlide =  createSlice({
         },
         setInfoAccount: (state, action) => {
             state.info = action.payload
+        },
+        logoutAccount: (state, action) => {
+            localStorage.removeItem(USER_LOGIN);
+            localStorage.removeItem(TOKEN);
+            state.userLogin = {}
+            state.info = {}
         }
     }
 })
 
-export const { setInfoLogin, setInfoAccount} = AccountSlide.actions;
+export const { setInfoLogin, setInfoAccount, logoutAccount} = AccountSlide.actions;
 
 export default AccountSlide.reducer;

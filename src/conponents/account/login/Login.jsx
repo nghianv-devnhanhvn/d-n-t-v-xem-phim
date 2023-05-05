@@ -18,6 +18,7 @@ function Login(props) {
     }
 
     const handleChangeValue = (e) => {
+        e.preventDefault();
         let {name, value} = e.target;
         if(name === 'username'){
             setUsername(value);
@@ -29,7 +30,7 @@ function Login(props) {
 
     return (
         <div className="fromWrapper">
-            <form action="#" method="post">
+            <form onSubmit={handleSubmit} action="#" method="post">
                 <input type="text" placeholder="Tài khoản" name="username"
                        onChange={(e) => {
                            handleChangeValue(e);
@@ -54,7 +55,7 @@ function Login(props) {
                     </span>
                 </div>
                 <div className="submitBtn">
-                    <input onClick={handleSubmit} type="button" value="Đăng nhập" />
+                    <input type="submit" value="Đăng nhập" />
                 </div>
             </form>
         </div>

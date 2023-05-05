@@ -1,12 +1,13 @@
+import "./header.scss";
 import React, { useState, useEffect } from "react";
-import { HiOutlineSearch } from "react-icons/hi";
+import {HiOutlineSearch, HiOutlineUser} from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
-// import { useNavigate, useLocation } from "react-router-dom";
 import {NavLink, useLocation} from "react-router-dom";
-
-import "./header.scss";
 import ContentWrapper from "../../../../conponents/contentWrapper/ContentWrapper";
+import {history} from "../../../../App";
+import {useDispatch} from "react-redux";
+import {openModalAccount} from "../../../../redux/stores/ModalAccountSlide";
 
 const Header = () => {
     const [show, setShow] = useState("top");
@@ -14,8 +15,8 @@ const Header = () => {
     const [mobileMenu, setMobileMenu] = useState(false);
     const [query, setQuery] = useState("");
     const [showSearch, setShowSearch] = useState("");
-    // const navigate = useNavigate();
     const location = useLocation();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -60,21 +61,9 @@ const Header = () => {
         setShowSearch(false);
     };
 
-    const navigationHandler = (type) => {
-        if (type === "movie") {
-            // navigate("/explore/movie");
-            console.log("/explore/movie");
-        } else {
-            // navigate("/explore/tv");
-            console.log("/explore/tv");
-        }
-        setMobileMenu(false);
-    };
-
     return (
         <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
             <ContentWrapper>
-                {/*<div className="logo" onClick={() => navigate("/")}>*/}
                 <div className="logo">
                     <NavLink to={'/'}>
                         <img src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo-small.png" alt="" />
@@ -83,15 +72,29 @@ const Header = () => {
                 <ul className="menuItems">
                     <li
                         className="menuItem"
-                        onClick={() => navigationHandler("movie")}
+                        onClick={() => history.push('danh-sach-phim')}
                     >
                         Danh sách phim
                     </li>
                     <li
                         className="menuItem"
-                        onClick={() => navigationHandler("tv")}
+                        onClick={() => history.push('lien-he')}
                     >
                         Liên hệ
+                    </li>
+                    <li
+                        className="menuItem"
+                    >
+                        Xin chào NghiaNV
+                    </li>
+                    <li
+                        className="menuItem"
+                        onClick={() => dispatch(openModalAccount({
+                            visible: true,
+                            isRegister: false
+                        }))}
+                    >
+                        <HiOutlineUser />
                     </li>
                     <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />

@@ -13,11 +13,13 @@
   --black: #04152d;
   --black2: #041226;
   --black3: #020c1b;
+  --black4: #04152d;
   --black-lighter: #1c4b91;
   --black-light: #173d77;
   --pink: #da2f68;
   --orange: #f89e00;
   --gradient: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+  --white1: #ffffffb5;
 
   --tw-shadow: 0px 0.8px 2px rgba(0,0,0,.032),
   0px 2.7px 6.7px rgba(0,0,0,.048),
@@ -36,9 +38,16 @@ body {
   background-color: var(--black);
 }
 
+/*--- Style scrollbar ---*/
 ::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+  height: 10px;
 }
+::-webkit-scrollbar-thumb {
+  background: #bebebe;
+}
+
+/*--- Style end scrollbar ---*/
 
 .skeleton {
   position: relative;

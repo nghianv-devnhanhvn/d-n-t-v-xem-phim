@@ -8,6 +8,7 @@ import {fetchDataFromApi} from "./utils/api";
 import {getApiBanners} from "./redux/stores/HomeSlice";
 import {API_LINK_BANNER} from "./utils/settings/config";
 import Details from "./pages/details/Details";
+import PageNotFound from "./pages/404/PageNotFound";
 
 export const history = createBrowserHistory();
 
@@ -29,6 +30,7 @@ function App() {
               <HomeTemplate path="/" exact Component={Home} />
               <HomeTemplate path="/home" exact Component={Home} />
               <HomeTemplate path="/chi-tiet-phim/:movieId" exact Component={Details} />
+              <HomeTemplate path="*" Component={PageNotFound} />
           </Switch>
       </Router>
   );

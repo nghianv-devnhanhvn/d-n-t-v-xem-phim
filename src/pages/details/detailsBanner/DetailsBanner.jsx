@@ -47,12 +47,12 @@ const DetailsBanner = ({movieItem, loading}) => {
 
                                 <Genres data={genreRandom} />
 
-                                <div className="row">
+                                <div className="d-flex wr">
                                     <CircleRating
                                         rating={movieItem.danhGia? parseInt(movieItem.danhGia) * 10 : 60 }
                                     />
                                     <div
-                                        className="playbtn"
+                                        className="playbtn ml-2"
                                         onClick={() => {
                                             setShow(true);
                                             setLink(movieItem.trailer);

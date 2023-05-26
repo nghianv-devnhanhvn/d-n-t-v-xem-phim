@@ -13,3 +13,4 @@ export const TMDB_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2No
 export const API_LINK_BANNER = "/api/QuanLyPhim/LayDanhSachBanner";
 export const API_LINK_LIST_MOVIE = `/api/QuanLyPhim/LayDanhSachPhim?manhom=${GROUP_ID}`;
 export const API_LINK_DETAIL_MOVIE = "/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=";
+export const API_LINK_LOAD_BOOK_CHAIR = "/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=";

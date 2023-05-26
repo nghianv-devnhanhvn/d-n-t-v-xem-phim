@@ -12,7 +12,9 @@ function HomeTemplate(props) {
             <Header {...propsRoute} />
             <ModalAccount />
 
-            <Component {...propsRoute} />
+            <main className="main-content">
+                <Component {...propsRoute} />
+            </main>
 
             <Footer {...propsRoute} />
         </Fragment>

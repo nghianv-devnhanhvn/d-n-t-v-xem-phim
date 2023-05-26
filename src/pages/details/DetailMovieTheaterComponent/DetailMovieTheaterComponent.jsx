@@ -19,7 +19,7 @@ function DetailMovieTheaterComponent({movieTheaters}) {
 
                                 <div className="movieItem__info--times">
                                     {item?.lichChieuPhim?.slice(0, 12).map((time, index) => {
-                                        return <NavLink className="time__item" to={`/checkout/${time.maLichChieu}`} key={index}>
+                                        return <NavLink className="time__item" to={`/dat-ve/${time.maLichChieu}`} key={index}>
                                             {dayjs(time.ngayChieuGioChieu).format('hh:mm:A')}
                                         </NavLink>
                                     })}

@@ -10,6 +10,12 @@
     }
 }
 
+@mixin mlg {
+    @media only screen and (min-width: 992px) {
+        @content;
+    }
+}
+
 @mixin lg {
     @media only screen and (min-width: 1024px) {
         @content;

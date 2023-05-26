@@ -3,13 +3,15 @@ import HomeSlice from "./stores/HomeSlice";
 import MovieTheaterSlide from "./stores/MovieTheaterSlide";
 import ModalAccountSlide from "./stores/ModalAccountSlide";
 import AccountSlide from "./stores/AccountSlide";
+import BookChairSlide from "./stores/BookChairSlide";
 
 const rootReducer = {
     // Khai báo reducer tại đây
     home: HomeSlice,
     movieTheater: MovieTheaterSlide,
     modalAccountSlide: ModalAccountSlide,
-    accountSlide: AccountSlide
+    accountSlide: AccountSlide,
+    bookChairSlide: BookChairSlide
 }
 
 

@@ -40,7 +40,7 @@ function MovieTheaterComponent({movieTheaters}) {
 
                                         <div className="movieItem__info--times">
                                             {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
-                                                return <NavLink className="time__item" to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
+                                                return <NavLink className="time__item" to={`/dat-ve/${lichChieu.maLichChieu}`} key={index}>
                                                     {dayjs(lichChieu.ngayChieuGioChieu).format('hh:mm:A')}
                                                 </NavLink>
                                             })}

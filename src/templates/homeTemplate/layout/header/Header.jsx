@@ -3,12 +3,12 @@ import React, {useState, useEffect} from "react";
 import {HiOutlineSearch, HiOutlineUser} from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
-import {NavLink, useLocation} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import ContentWrapper from "../../../../conponents/contentWrapper/ContentWrapper";
 import {history} from "../../../../App";
 import {useDispatch, useSelector} from "react-redux";
 import {openModalAccount} from "../../../../redux/stores/ModalAccountSlide";
-import {logoutAccount, setInfoLogin} from "../../../../redux/stores/AccountSlide";
+import {logoutAccount} from "../../../../redux/stores/AccountSlide";
 
 const Header = () => {
     const [show, setShow] = useState("top");
@@ -16,14 +16,9 @@ const Header = () => {
     const [mobileMenu, setMobileMenu] = useState(false);
     const [query, setQuery] = useState("");
     const [showSearch, setShowSearch] = useState("");
-    const location = useLocation();
     const dispatch = useDispatch();
-
     const {userLogin} = useSelector(state => state.accountSlide);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [location]);
 
     const controlNavbar = () => {
         if (window.scrollY > 200) {

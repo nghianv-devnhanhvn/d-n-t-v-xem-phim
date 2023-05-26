@@ -38,7 +38,7 @@ const HomeBanner = () => {
                 <div className="heroBannerContent">
                     <span className="title">CGV</span>
                     <span className="subTitle">
-                        Đặt vé xem phim ngay thôi nào!.
+                        Đặt vé xem phim ngay thôi nào!
                     </span>
                     <div className="searchInput">
                         <input

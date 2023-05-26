@@ -19,7 +19,7 @@ export const AccountSlide =  createSlice({
             const infoUsers = action.payload;
             localStorage.setItem(USER_LOGIN, JSON.stringify(infoUsers));
             localStorage.setItem(TOKEN, infoUsers.accessToken);
-            state.userLogin = action.payload
+            state.userLogin = infoUsers
         },
         setInfoAccount: (state, action) => {
             state.info = action.payload

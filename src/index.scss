@@ -35,7 +35,27 @@
 }
 
 body {
+  height: 100%;
   background-color: var(--black);
+}
+
+#root{
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+#root header {
+  flex: 0 1 auto;
+}
+
+#root .main-content {
+  flex: 1 1 auto;
+}
+
+#root footer {
+  flex: 0 1 40px;
+  margin-top: 2rem;
 }
 
 /*--- Style scrollbar ---*/

@@ -10,6 +10,7 @@ import {API_LINK_BANNER} from "./utils/settings/config";
 import Details from "./pages/details/Details";
 import PageNotFound from "./pages/404/PageNotFound";
 import Checkout from "./pages/checkout/Checkout";
+import ScrollToTop from "./conponents/ScrollToTop/ScrollToTop";
 
 export const history = createBrowserHistory();
 
@@ -27,13 +28,15 @@ function App() {
 
   return (
       <Router history={history}>
-          <Switch>
-              <HomeTemplate path="/" exact Component={Home} />
-              <HomeTemplate path="/home" exact Component={Home} />
-              <HomeTemplate path="/chi-tiet-phim/:movieId" exact Component={Details} />
-              <HomeTemplate path="/dat-ve/:movieId" exact Component={Checkout} />
-              <HomeTemplate path="*" Component={PageNotFound} />
-          </Switch>
+          <ScrollToTop>
+              <Switch>
+                  <HomeTemplate path="/" exact Component={Home} />
+                  <HomeTemplate path="/home" exact Component={Home} />
+                  <HomeTemplate path="/chi-tiet-phim/:movieId" exact Component={Details} />
+                  <HomeTemplate path="/dat-ve/:movieId" exact Component={Checkout} />
+                  <HomeTemplate path="*" Component={PageNotFound} />
+              </Switch>
+          </ScrollToTop>
       </Router>
   );
 }

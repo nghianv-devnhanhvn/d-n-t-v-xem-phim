@@ -1,3 +1,5 @@
+@import "../../../mixins";
+
 .cinemaWrapper{
   border: 1px solid #ffffff70;
   padding: 5px;
@@ -6,6 +8,11 @@
   box-shadow: var(--tw-ring-offset-shadow),
   var(--tw-ring-shadow),
   var(--tw-shadow);
+  overflow-x: auto;
+  width: 100%;
+  @include xl{
+    overflow-x: inherit;
+  }
 
   .branchWrapper{
     display: flex;
@@ -26,7 +33,11 @@
   }
 
   #cinemaTab {
-    margin: 20px 0;
+    width: 1150px;
+    @include xl{
+      width: auto;
+    }
+
     .ant-tabs-nav,
     .ant-tabs-content-holder:last-child {
       max-height: 500px !important;
